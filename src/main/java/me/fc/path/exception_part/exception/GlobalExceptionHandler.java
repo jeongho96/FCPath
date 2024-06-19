@@ -1,8 +1,9 @@
 package me.fc.path.exception_part.exception;
 
 
-import com.fc.path.fcpath.exception_part.model.Api;
+
 import lombok.extern.slf4j.Slf4j;
+import me.fc.path.exception_part.model.Api;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 

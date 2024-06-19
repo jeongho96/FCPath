@@ -1,8 +1,9 @@
 package me.fc.path.exception_part.controller;
 
 
-import com.fc.path.fcpath.exception_part.model.Api;
-import com.fc.path.fcpath.exception_part.model.UserResponse;
+
+import me.fc.path.exception_part.model.Api;
+import me.fc.path.exception_part.model.UserResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 
