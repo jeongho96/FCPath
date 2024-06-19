@@ -1,0 +1,42 @@
+//package com.fc.path.fcpath.validation_part.controller;
+//
+//import com.fc.path.fcpath.validation_part.model.Api;
+//import com.fc.path.fcpath.validation_part.model.UserRegisterRequest;
+//import jakarta.validation.Valid;
+//import lombok.extern.slf4j.Slf4j;
+//import org.springframework.http.HttpStatus;
+//import org.springframework.http.ResponseEntity;
+//import org.springframework.validation.BindingResult;
+//import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestBody;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RestController;
+//
+//import java.util.stream.Collectors;
+//
+//@Slf4j
+//@RestController
+//@RequestMapping("/api/user")
+//public class UserApiController {
+//
+//
+//    // ? extends Object : 어떤 타입인지는 모르지만 Object 상속클래스임.
+//    @PostMapping("")
+//    public Api<UserRegisterRequest> register(
+//            @Valid
+//        @RequestBody
+//        Api<UserRegisterRequest> userRegisterRequest
+//    ){
+//        log.info("init : {}", userRegisterRequest);
+//
+//
+//
+//        var body = userRegisterRequest.getData();
+//        Api<UserRegisterRequest> response = Api.<UserRegisterRequest>builder()
+//                .resultCode(String.valueOf(HttpStatus.OK.value()))
+//                .resultMessage(HttpStatus.OK.getReasonPhrase())
+//                .data(body).build();
+//
+//        return response;
+//    }
+//}

@@ -1,4 +1,4 @@
-package me.fc.fcbackendpath;
+package me.fc.path;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
