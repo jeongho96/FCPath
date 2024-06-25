@@ -2,9 +2,7 @@ package me.fc.path.db_part.book.db;
 
 
 
-import me.fc.path.db_part.db.SimpleDataRepository;
-import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-@Service
-public class BookRepository extends SimpleDataRepository<BookEntity, Long> {
+public interface BookRepository extends JpaRepository<BookEntity, Long> {
 }
