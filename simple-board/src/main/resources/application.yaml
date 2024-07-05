@@ -5,12 +5,12 @@ spring:
   jpa:
     show-sql: true
     properties:
-      format_sql: true
-      dialect: org.hibernate.dialect.MySQL8Dialect
+      hibernate:
+        format_sql: true
     hibernate:
       ddl-auto: validate
   datasource:
-    url: jdbc:mysql://localhost:3306/simple_board?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3307/simple_board?useSSL=false&useUnicode=true&allowPublicKeyRetrieval=true&characterEncoding=UTF-8
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root1234!!
