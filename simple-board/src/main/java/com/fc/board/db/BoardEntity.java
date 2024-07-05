@@ -1,11 +1,12 @@
 package com.fc.board.db;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fc.post.db.PostEntity;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.Where;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -23,4 +24,13 @@ public class BoardEntity {
     private String boardName;
 
     private String status;
+
+    @OneToMany(
+            mappedBy = "boardEntity"
+    )
+    @Builder.Default
+    @Where(clause = "status = 'REGISTERED'")
+//    @org.hibernate.annotations.OrderBy(clause = "id desc")
+    @OrderBy(value = "id desc")
+    private List<PostEntity> postList = List.of();
 }

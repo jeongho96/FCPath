@@ -1,9 +1,14 @@
 package com.fc.post.db;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fc.board.db.BoardEntity;
+import com.fc.reply.db.ReplyEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,7 +23,11 @@ public class PostEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long boardId;
+    @ManyToOne
+    @JsonIgnore
+    @ToString.Exclude
+    @JoinColumn(name = "board_id")
+    private BoardEntity boardEntity; // board+ _id => board_id
 
     private String userName;
 
@@ -34,4 +43,10 @@ public class PostEntity {
     private String content;
 
     private LocalDateTime postedAt;
+
+    @OneToMany(
+            mappedBy = "post"
+    )
+    @Builder.Default
+    private List<ReplyEntity> replyList = new ArrayList<>();
 }

@@ -1,5 +1,7 @@
 package com.fc.reply.db;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fc.post.db.PostEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,7 +20,10 @@ public class ReplyEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private Long postId;
+    @ManyToOne
+    @ToString.Exclude
+    @JsonIgnore
+    private PostEntity post;    // post => _id => post_id
 
     private String userName;
 
@@ -32,4 +37,5 @@ public class ReplyEntity {
     private String content;
 
     private LocalDateTime repliedAt;
+
 }

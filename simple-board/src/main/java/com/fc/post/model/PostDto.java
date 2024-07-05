@@ -1,38 +1,37 @@
 package com.fc.post.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @ToString
 @Builder
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class PostRequest {
+public class PostDto {
 
-    private Long boardId = 1L;
+    private Long id;
 
-    @NotBlank
+    private Long boardId;
+
     private String userName;
 
-    @NotBlank
-    @Size(min = 4, max = 4)
     private String password;
 
-    @NotBlank
-    @Email
     private String email;
 
+    private String status;
 
-    @NotBlank
     private String title;
 
-    @NotBlank
     private String content;
+
+    private LocalDateTime postedAt;
+
 }

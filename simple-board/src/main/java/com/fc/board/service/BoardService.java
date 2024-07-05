@@ -3,6 +3,7 @@ package com.fc.board.service;
 
 import com.fc.board.db.BoardEntity;
 import com.fc.board.db.BoardRepository;
+import com.fc.board.model.BoardDto;
 import com.fc.board.model.BoardRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,17 +13,25 @@ import org.springframework.stereotype.Service;
 public class BoardService {
 
     private final BoardRepository boardRepository;
+    private final BoardConverter boardConverter;
 
 
-    public BoardEntity create(
+    public BoardDto create(
             BoardRequest boardRequest
     ){
         var entity = BoardEntity.builder()
                 .boardName(boardRequest.getBoardName())
                 .status("REGISTERED")
-                .build();
+                .build()
+                ;
 
+        var saveEntity = boardRepository.save(entity);
 
-        return boardRepository.save(entity);
+        return boardConverter.toDto(saveEntity);
+    }
+
+    public BoardDto view(Long id) {
+        var entity = boardRepository.findById(id).get();
+        return boardConverter.toDto(entity);
     }
 }
