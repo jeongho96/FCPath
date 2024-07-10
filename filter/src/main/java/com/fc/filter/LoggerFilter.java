@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 
 // 다른 곳이 아니라 servlet의 필터를 가져와야 한다.
 @Slf4j
-@Component
+//@Component
 public class LoggerFilter implements Filter {
 
     @Override
