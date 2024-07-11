@@ -17,7 +17,7 @@ public class UserService {
     private final UserRepository userRepository;
 
     // login logic
-    public void login(
+    public String login(
             LoginRequest loginRequest,
             HttpServletResponse httpServletResponse
     ){
@@ -31,19 +31,11 @@ public class UserService {
 
 
             if(userDto.getPassword().equals(pw)){
-                // cookie 해당 정보를 저장
-                var cookie = new Cookie("authorization-cookie",userDto.getId());
-                cookie.setDomain("localhost");  // naver.com , daum.net  dev.xxx.com, << production.xxx.com
-                cookie.setPath("/");
-                cookie.setHttpOnly(true);
-                //cookie.setSecure(true); // << https 에서만 사용되도록 설정
-                cookie.setMaxAge(-1);   // session
-
-                httpServletResponse.addCookie(cookie);
+                return userDto.getId();
             }
         }else{
             throw new RuntimeException("User Not Found");
         }
-
+        return null;
     }
 }

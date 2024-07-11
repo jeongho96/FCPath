@@ -5,6 +5,7 @@ package com.fc.cookie.controller;
 import com.fc.cookie.model.LoginRequest;
 import com.fc.cookie.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,11 +22,12 @@ public class AccountApiController {
     private final UserService userService;
 
     @PostMapping("/login")
-    public void login(
+    public String login(
             @RequestBody
             LoginRequest loginRequest,
-            HttpServletResponse httpServletResponse
+            HttpServletResponse httpServletResponse,
+            HttpSession httpSession
     ){
-        userService.login(loginRequest, httpServletResponse);
+        return userService.login(loginRequest, httpServletResponse);
     }
 }
