@@ -1,4 +1,4 @@
-package org.delivery.api.db;
+package org.delivery.db;
 
 public class UserDto {
 }

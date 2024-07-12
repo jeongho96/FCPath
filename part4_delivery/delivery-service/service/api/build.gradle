@@ -1,3 +1,4 @@
+// 부모와 다르게 버전은 제거한다. 부모를 따라가므로
 plugins {
     id 'java'
     id 'org.springframework.boot'
@@ -23,12 +24,22 @@ dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // 사용하고자 하는 하위 모듈을 가져온다.
     implementation project(':db')
 
 }
 
 test {
     useJUnitPlatform()
+}
+
+// spring boot를 실행하기 위한 bootJar는 필요함.
+bootJar{
+    enabled = true
+}
+
+// 외부 라이브러리로 참고하는 Jar는 필요 없음.
+jar {
+    enabled = false
 }
