@@ -4,8 +4,10 @@ package org.delivery.api.account;
 import lombok.RequiredArgsConstructor;
 import org.delivery.api.account.model.AccountMeResponse;
 import org.delivery.api.common.api.Api;
+import org.delivery.api.common.error.ErrorCode;
 import org.delivery.db.account.AccountEntity;
 import org.delivery.db.account.AccountRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,7 +31,8 @@ public class AccountApiController {
                 .registeredAt(LocalDateTime.now())
                 .build();
 
-        return Api.OK(response);
+       return Api.OK(response);
+
     }
 
 }
