@@ -3,6 +3,7 @@ package org.delivery.api.account;
 
 import lombok.RequiredArgsConstructor;
 import org.delivery.api.account.model.AccountMeResponse;
+import org.delivery.api.common.api.Api;
 import org.delivery.db.account.AccountEntity;
 import org.delivery.db.account.AccountRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,13 +21,15 @@ public class AccountApiController {
 
 
     @GetMapping("/me")
-    public AccountMeResponse me(){
+    public Api<AccountMeResponse> me(){
 
-        return AccountMeResponse.builder()
+        var response = AccountMeResponse.builder()
                 .name("홍길동")
                 .email("A@gmail.com")
                 .registeredAt(LocalDateTime.now())
                 .build();
+
+        return Api.OK(response);
     }
 
 }
