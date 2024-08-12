@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * User의 경우 1000번대 에러코드를 사용
+ * Token의 경우 2000번대 에러코드를 사용
  */
 @AllArgsConstructor
 @Getter
