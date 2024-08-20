@@ -47,6 +47,7 @@ public class RabbitMqConfig {
      * @param messageConverter
      * @return
      */
+    @Bean
     public RabbitTemplate rabbitTemplate(
             ConnectionFactory connectionFactory,
             MessageConverter messageConverter
